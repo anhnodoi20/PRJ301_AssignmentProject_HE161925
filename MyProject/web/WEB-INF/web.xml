@@ -4,9 +4,17 @@
         <servlet-name>Fap</servlet-name>
         <servlet-class>controller.Timetable</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>reportAttendance</servlet-name>
+        <servlet-class>controller.reportAttendance</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Fap</servlet-name>
         <url-pattern>/fap/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>reportAttendance</servlet-name>
+        <url-pattern>/fap/reportAttendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

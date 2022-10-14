@@ -22,7 +22,31 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
     </head>
     <body>
-        <div class="container">
+       <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1><span>FPT University Academic Portal</span> </h1>
+                </div>
+                <div class="col-md-4">
+                <table>
+                    <tr>
+                        <td colspan="2" class="auto-style1"><strong>FAP mobile app (myFAP) is ready at</strong></td>
+
+                    </tr>
+                    <tr>
+                        <td><a href="">
+                            <img src="https://fap.fpt.edu.vn/images/app-store.svg" style="width: 120px; height: 40px" alt="apple store" />
+                            </a>
+                        </td>
+                        <td><a href="">
+                            <img src="https://fap.fpt.edu.vn/images/play-store.svg" style="width: 120px; height: 40px" alt="google store" />
+                            </a>
+                        </td>
+
+                    </tr>
+                </table>
+                </div>
+            </div>
             
             <style>
                 
@@ -70,7 +94,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </div>
             <div>
                 <p> <span>Attendance for</span>
-                    <b>JPD123</b> at slot 6 on Tuesday 11/10/2022, Fall2022, at room DE_301.
+                    <b>NganNTT</b> at slot 6 on Tuesday 11/10/2022, Fall2022, at room DE_301.
                     This is the session number 3 of the course.
                 </p>
             </div>
@@ -114,12 +138,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <td><font color="blue">SE1645</font></td>
                             <td><font color="blue">HE161925</font></td>
                             <td>Tran Dinh Luc</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present1" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present1" value="present"/> Present </td>
                             <td><input type="text"/></td>
                             <td>
                                 <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
                             </td>
                         </tr>
                         <tr>
@@ -127,13 +150,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <td><font color="blue">SE1645</font></td>
                             <td><font color="blue">HE166666</font></td>
                             <td>Tran Dinh Bien</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present2" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present2" value="present"/> Present </td>
                         
                             <td><input type="text"/></td>
                             <td>
                                 <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
+                                
                             </td>
                         </tr>
                         <tr>
@@ -141,13 +164,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <td><font color="blue">SE1645</font></td>
                             <td><font color="blue">HE167777</font></td>
                             <td>Nguyen Van Kien</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present3" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present3" value="present"/> Present </td>
                         
                             <td><input type="text"/></td>
                             <td>
                                 <p id="show image" onclick="show()">Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
                             </td>
                         </tr>
                             <tr>
@@ -155,73 +177,67 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                             <td><font color="blue">SE1645</font></td>
                             <td><font color="blue">HE168888</font></td>
                             <td>Nguyen Van Dat</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present4" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present4" value="present"/> Present </td>
                         
                             <td><input type="text"/></td>
                             <td>
                                 <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
                             </td>
                         </tr>
                             <tr>
                             <td>5</td>
                             <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE164687</font></td>
+                            <td><font color="blue">HE169999</font></td>
                             <td>G</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present5" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present5" value="present"/> Present </td>
                         
                             <td><input type="text"/></td>
                             <td>
                                 <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
                             </td>
                         </tr>
                             <tr>
                             <td>6</td>
                             <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE165645</font></td>
+                            <td><font color="blue">HE160000</font></td>
                             <td>H</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present6" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present6" value="present"/> Present </td>
                         
                             <td><input type="text"/></td>
                             <td>
                                 <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
                             </td>
                         </tr>
                             <tr>
                             <td>7</td>
                             <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE163475</font></td>
+                            <td><font color="blue">HE161111</font></td>
                             <td>I</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
+                            <td><input type="radio" name="present7" value="absent"/> Absent</td>
+                            <td><input type="radio" name="present7" value="present"/> Present </td>
                         
                             <td><input type="text"/></td>
                             <td>
                                 <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
-                            </td>
-                        </tr>
-                            <tr>
-                            <td>8</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE165563</font></td>
-                            <td>K</td>
-                            <td><input type="radio" name="present" value="absent"/> Absent</td>
-                            <td><input type="radio" name="present" value="present"/> Present </td>
-                        
-                            <td><input type="text"/></td>
-                            <td>
-                                <p>Show Image</p>
-                                <img src="#" style="height:150px;width:150px;border-width:0px;"/> 
+                               
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <div  class="save" >
+                     <input  type="submit" value="save"/>
+                </div>             
+                <style>
+                    .save {     
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+                    
+                </style>
+                
             </div>
                 
             

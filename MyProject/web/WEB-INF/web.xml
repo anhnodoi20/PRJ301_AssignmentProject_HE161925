@@ -12,6 +12,10 @@
         <servlet-name>Check_attendance</servlet-name>
         <servlet-class>controller.Check_attendance</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Timetable_lecture</servlet-name>
+        <servlet-class>controller.Timetable_lecture</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>reportAttendance</servlet-name>
         <url-pattern>/student/reportAttendance</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Check_attendance</servlet-name>
         <url-pattern>/lecture/Check_attendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Timetable_lecture</servlet-name>
+        <url-pattern>/lecture/Timetable</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

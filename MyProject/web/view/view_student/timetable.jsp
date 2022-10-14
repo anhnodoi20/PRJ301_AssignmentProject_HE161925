@@ -5,8 +5,6 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /><title>
@@ -26,23 +24,10 @@
         
         <form action="" method="post">
            MSSV  <input name="mssv" type="text" />
-           
-            
-            
-            
-            
-            
+             
         </form>
         <br/>
-        <div>
-<form name="aspnetForm" method="post" action="./ScheduleOfWeek.aspx" id="aspnetForm">        
-
-
-<div>
-
-	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D5FDD5A8" />
-	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdADz3dEbMB+jaoJHh8h1CBfil1XYALReTroFJdjTvD/QOPK1gsq074Y2ujrILA8To2JbD267NDPR9RMnY08SdFfla9gKY8YnupVlFlqmszjA0KsuIdIn4QHhoQNvrWLqhu1pYSIyv68kt2nzn6eRc6IZMABIfE9keuuy5VzdSJoDlCDDarFJkh0XsarzAy8B0HqOimTcb2/iolFYKe+qDIgEgQAZnPTJ14zMFs5WO+1Jx425g742rvsJy6NWyvJ1f1k9DuqAbcSSduGGTZXEnCjl7t1bxwRMDBjM/ltH2/1qLPf1lziVZTVsGh8/QsOwQLirUAv7izDPjGHWv0cxtdFyyzeffAxCYSMnGzb8nSa+F4M6EJT/XgIQcEVR+4VdWDcLUinbPJeq8FT02AiMqRVAfVMQZ9G2edaZisToeqPDRa4NA4/MMS11kVoCIRsPPD50d9giOK4H79knwi2YQ7GaFXhn/6m64A2WKlNXZaR1dFgUtOkiMGqKxiUDESWPHJ+r78Oy43G3VefQJiryUUCXt6nq8zgY3SCNyNJvH5UXPFLExSsRuaDifXn3xREG0xxHEify/2pZqMOcC4hK7iHOGKHgkBvgOpx6GjywCEGi1BgO2fh6aVlgspRNs2BYbqNvgfXO4f5YOXhW+JkxiZiV/ji/d9j1uq90BZRQ2hvL8r0cYGDxpS7aFTmaD29B3uAsNVzFx9T0MaYiA1XarslwwKcJ9fzDj2YvDcaBWEZMVyCxERUSg84f4yLXR5F+aV+n3wyHMvalECWwVzOsG44QnO4gTty9iF/lxaJIIwEc5sRSBjQP0AE1v0SPqXQMmamChxyc2ijzS5KPt1XBvTrS1eVQFBggGV/apGjFZGDIFqBzNoKv/ZKQLF3Q5n6gKtFG+j39/RauqtaG2iEWj0hXRnNmFBrit25bwUc1AnfcGxKARoJ+YWfki4PcG/VF1o+b9dcnpDhAochHtqdWlrTrtROX4Vjz4ZrD5AYT4Jw6hHb+2sFpx4umg+7d1Sh6DX1VxlIyV5RAzJGZ+CtloaSDAJsucT3JFOJuXIFcmAuYsZvlPyqsUzMx0Vl12PH8bOVtoGeLne2montjUcNIqxpYDgE5w4Pz9jpMXo2c3dbm8x+ChFxzg4JJofBf4KFGPUu/lVrhbJalAEWPy3yZzR9xhBs6E2lrzxeN9XoMfEfdDi/QvgDWa+U7GB8EP1e+0f1Gu7ptBEFkuMzJnGucyBjYUEQKoT8Thxu2WYeF6Trc3GusC7iRLH5o3/9+k6QP/sZB1xyfoblEFsqkXwPDZnjYk/UYWSn5eGAU44/96i2NP8w==" />
-</div>
+        <div>    
                     <table>
                         <tr style="border-bottom: 0 none">
                             <td>
@@ -82,14 +67,7 @@
             position: relative;
             cursor: pointer;
         }
-
-        /*Animations*/
-
-        @keyframes blink {
-            100% { transform: scale(2, 2); 
-                opacity: 0;
-            }
-        }
+        
     </style>
     
     <table>
@@ -98,7 +76,7 @@
 
                 <th rowspan="2">
                     <span class="auto-style1"><strong>Year</strong></span>
-                    <select name="ctl00$mainContent$drpYear" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$mainContent$drpYear\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_mainContent_drpYear">
+                    <select>
 	<option value="2019">2019</option>
 	<option value="2020">2020</option>
 	<option value="2021">2021</option>
@@ -165,7 +143,7 @@
 </select>
                 </th>
 
-                <div id="ctl00_mainContent_divNameDay"><th  align='center'>Mon</th><th  align='center'>Tue</th><th  align='center'>Wed</th><th  align='center'>Thu</th><th  align='center'>Fri</th><th  align='center'>Sat</th><th  align='center'>Sun</th></div>
+                <div><th  align='center'>Mon</th><th  align='center'>Tue</th><th  align='center'>Wed</th><th  align='center'>Thu</th><th  align='center'>Fri</th><th  align='center'>Sat</th><th  align='center'>Sun</th></div>
             </tr>
             <tr>
                 <div id="ctl00_mainContent_divShowDate"><th  align='center'>10/10</th><th  align='center'>11/10</th><th  align='center'>12/10</th><th  align='center'>13/10</th><th  align='center'>14/10</th><th  align='center'>15/10</th><th  align='center'>16/10</th></div>
@@ -174,13 +152,69 @@
         </thead>
         <tbody>
             <div id="ctl00_mainContent_divContent">
-                <tr><td>Slot 0 </td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                <tr><td>Slot 1 </td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                <tr><td>Slot 2 </td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
-                <tr><td>Slot 3 </td><td><p>LAB211-<br/> at AL-R201 <a > <br/>(<font color=Green>attended</font>)<br/><span class='label label-success'>(10:50-12:20)</span><br/></p></td><td>-</td><td><p>LAB211- <br/> at AL-R201 -  <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(10:50-12:20)</span><br/></p></td><td>-</td><td><p>LAB211- <br/> at AL-R201 - <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(10:50-12:20)</span><br/></p></td><td>-</td><td>-</td></tr>
-                <tr><td>Slot 4 </td><td><p>IOT102-<br/> at DE-311 <a >  <br/>(<font color=Green>attended</font>)<br/><span class='label label-success'>(12:50-14:20)</span><br/></p></td><td>-</td><td><p>IOT102-<br/> at DE-311 - <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(12:50-14:20)</span><br/></p></td><td>-</td><td><p>IOT102-<br/> at DE-311 - <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(12:50-14:20)</span><br/></p></td><td>-</td><td>-</td></tr>
-                <tr><td>Slot 5 </td><td><p>PRJ301-<br/> at DE-C203 <a > <br/>(<font color=Green>attended</font>)<br/><span class='label label-success'>(14:30-16:00)</span><br/></p></td><td>-</td><td><p>PRJ301-<br/> at DE-C203 -  <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(14:30-16:00)</span><br/></p></td><td><p>JPD123-<br/> at DE-C301 -  <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(14:30-16:00)</span><br/></p></td><td><p>PRJ301-<br/> at DE-C203 - <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(14:30-16:00)</span><br/></p></td><td>-</td><td>-</td></tr>
-                <tr><td>Slot 6 </td><td><p>MAS291-<br/> at DE-C203 <a > <br/>(<font color=Green>attended</font>)<br/><span class='label label-success'>(16:10-17:40)</span><br/></p></td><td><p>JPD123-<br/> at DE-C301 <a > <br/>(<font color=Green>attended</font>)<br/><span class='label label-success'>(16:10-17:40)</span><br/></p></td><td><p>MAS291-<br/> at DE-C203 -   <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(16:10-17:40)</span><br/></p></td><td><p>JPD123-<br/> at DE-C301 - <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(16:10-17:40)</span><br/></p></td><td><p>MAS291-<a class='label label-warning'></a><br/> at DE-C203 -   <br/>(<font color=red>Not yet</font>)<br/><span class='label label-success'>(16:10-17:40)</span><br/></p></td><td>-</td><td>-</td></tr>
+                <tr><td>Slot 0 </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr><td>Slot 1 </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr><td>Slot 2 </td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr><td>Slot 3 </td>
+                    <td><p>LAB211-<br/> at AL-R201 <a > <br/>(<font color=Green>attended</font>)<br/><span>(10:50-12:20)</span><br/></p></td>
+                    <td>-</td>
+                    <td><p>LAB211- <br/> at AL-R201 -  <br/>(<font color=red>Not yet</font>)<br/><span>(10:50-12:20)</span><br/></p></td>
+                    <td>-</td>
+                    <td><p>LAB211- <br/> at AL-R201 - <br/>(<font color=red>Not yet</font>)<br/><span>(10:50-12:20)</span><br/></p></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr><td>Slot 4 </td>
+                    <td><p>IOT102-<br/> at DE-311 <a >  <br/>(<font color=Green>attended</font>)<br/><span>(12:50-14:20)</span><br/></p></td>
+                    <td>-</td>
+                    <td><p>IOT102-<br/> at DE-311 - <br/>(<font color=red>Not yet</font>)<br/><span>(12:50-14:20)</span><br/></p></td>
+                    <td>-</td>
+                    <td><p>IOT102-<br/> at DE-311 - <br/>(<font color=red>Not yet</font>)<br/><span>(12:50-14:20)</span><br/></p></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr><td>Slot 5 </td>
+                    <td><p><a href="reportAttendance">PRJ301-</a><br/> at DE-C203 <br/>(<font color=Green>attended</font>)<br/><span>(14:30-16:00)</span><br/></p></td>
+                    <td>-</td>
+                    <td><p>PRJ301-<br/> at DE-C203 -  <br/>(<font color=red>Not yet</font>)<br/><span>(14:30-16:00)</span><br/></p></td>
+                    <td><p>JPD123-<br/> at DE-C301 -  <br/>(<font color=red>Not yet</font>)<br/><span>(14:30-16:00)</span><br/></p></td>
+                    <td><p>PRJ301-<br/> at DE-C203 - <br/>(<font color=red>Not yet</font>)<br/><span>(14:30-16:00)</span><br/></p></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr><td>Slot 6 </td>
+                    <td><p>MAS291-<br/> at DE-C203 <a > <br/>(<font color=Green>attended</font>)<br/><span >(16:10-17:40)</span><br/></p></td>
+                    <td><p>JPD123-<br/> at DE-C301 <a > <br/>(<font color=Green>attended</font>)<br/><span >(16:10-17:40)</span><br/></p></td>
+                    <td><p>MAS291-<br/> at DE-C203 -   <br/>(<font color=red>Not yet</font>)<br/><span>(16:10-17:40)</span><br/></p></td>
+                    <td><p>JPD123-<br/> at DE-C301 - <br/>(<font color=red>Not yet</font>)<br/><span>(16:10-17:40)</span><br/></p></td>
+                    <td><p>MAS291-<br/> at DE-C203 -<br/>(<font color=red>Not yet</font>)<br/><span>(16:10-17:40)</span><br/></p></td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
                 <tr><td>Slot 7 </td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr>
                 <tr><td>Slot 8 </td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr></div>
         </tbody>
@@ -190,10 +224,8 @@
                             </td>
                         </tr>
                     </table>
-                </form>
             </div>
         </div>
-   <a href="reportAttendance">Attendance Report</a>
 </body>
 </html>
 

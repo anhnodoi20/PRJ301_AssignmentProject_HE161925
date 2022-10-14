@@ -16,10 +16,53 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
-	<link href="bootstrap.min.css" rel="stylesheet">
-	<!-- Embed css link here-->
-	
-        <link rel="stylesheet" href="bootstrap.min.css" type="text/css"/>
+	<link href="bootstrap.min.css" rel="stylesheet">	
+        <style>
+                
+                .a {
+                    margin-top:10px;
+                    margin-bottom: 50px;
+                    
+                }
+                .a1 {
+                    float: right; 
+                    margin-right: 20px;
+                }
+                .a1 a, .a1 span {
+                    border: none;
+                    outline: none;
+                    padding: 4px;
+                    color: white;
+                    background-color: #333;
+                    border-radius: 5px;
+                }
+              
+                .a2 {
+                    text-decoration: none;
+                }
+                .b table {
+                        font-family: arial, sans-serif;
+                        border-collapse: collapse;
+                        width: 100%;
+                    }
+                    td {
+                        text-align: left;
+                        padding: 8px;
+                    }
+                    .b td, th {
+                        border: 1px solid #dddddd;
+                        text-align: left;
+                        padding: 8px;
+                    }
+                    .b th {
+                        background-color: blue;
+                    } 
+                    .save {     
+                        margin-top: 20px;
+                        text-align: center;
+                    }
+                    
+            </style>
     </head>
     <body>
        <div class="container">
@@ -48,31 +91,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 </div>
             </div>
             
-            <style>
-                
-                .a {
-                    margin-top:10px;
-                    margin-bottom: 50px;
-                    
-                }
-                .a1 {
-                    float: right; 
-                    margin-right: 20px;
-                }
-                .a1 a, .a1 span {
-                    border: none;
-                    outline: none;
-                    padding: 4px;
-                    color: white;
-                    background-color: #333;
-                    border-radius: 5px;
-                }
-              
-                .a2 {
-                    text-decoration: none;
-                }
-                
-            </style>
+            
 
             <div class="a">
                 <div class="a1">
@@ -98,25 +117,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     This is the session number 3 of the course.
                 </p>
             </div>
-            <style>
-                  .b table {
-                        font-family: arial, sans-serif;
-                        border-collapse: collapse;
-                        width: 100%;
-                    }
-                    td {
-                        text-align: left;
-                        padding: 8px;
-                    }
-                    .b td, th {
-                        border: 1px solid #dddddd;
-                        text-align: left;
-                        padding: 8px;
-                    }
-                    .b th {
-                        background-color: rgb(124, 156, 190);
-                    } 
-            </style>
+           
             
             <div class="b">
                 <table>
@@ -135,8 +136,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE161925</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE161925</font></td>
                             <td>Tran Dinh Luc</td>
                             <td><input type="radio" name="present1" value="absent"/> Absent</td>
                             <td><input type="radio" name="present1" value="present"/> Present </td>
@@ -147,8 +148,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE166666</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE166666</font></td>
                             <td>Tran Dinh Bien</td>
                             <td><input type="radio" name="present2" value="absent"/> Absent</td>
                             <td><input type="radio" name="present2" value="present"/> Present </td>
@@ -161,8 +162,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE167777</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE167777</font></td>
                             <td>Nguyen Van Kien</td>
                             <td><input type="radio" name="present3" value="absent"/> Absent</td>
                             <td><input type="radio" name="present3" value="present"/> Present </td>
@@ -174,8 +175,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         </tr>
                             <tr>
                             <td>4</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE168888</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE168888</font></td>
                             <td>Nguyen Van Dat</td>
                             <td><input type="radio" name="present4" value="absent"/> Absent</td>
                             <td><input type="radio" name="present4" value="present"/> Present </td>
@@ -187,8 +188,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         </tr>
                             <tr>
                             <td>5</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE169999</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE169999</font></td>
                             <td>G</td>
                             <td><input type="radio" name="present5" value="absent"/> Absent</td>
                             <td><input type="radio" name="present5" value="present"/> Present </td>
@@ -200,8 +201,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         </tr>
                             <tr>
                             <td>6</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE160000</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE160000</font></td>
                             <td>H</td>
                             <td><input type="radio" name="present6" value="absent"/> Absent</td>
                             <td><input type="radio" name="present6" value="present"/> Present </td>
@@ -213,8 +214,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         </tr>
                             <tr>
                             <td>7</td>
-                            <td><font color="blue">SE1645</font></td>
-                            <td><font color="blue">HE161111</font></td>
+                            <td><font color="#333">SE1645</font></td>
+                            <td><font color="#333">HE161111</font></td>
                             <td>I</td>
                             <td><input type="radio" name="present7" value="absent"/> Absent</td>
                             <td><input type="radio" name="present7" value="present"/> Present </td>
@@ -230,13 +231,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <div  class="save" >
                      <input  type="submit" value="save"/>
                 </div>             
-                <style>
-                    .save {     
-                        margin-top: 20px;
-                        text-align: center;
-                    }
-                    
-                </style>
                 
             </div>
                 

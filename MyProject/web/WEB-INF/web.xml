@@ -8,13 +8,21 @@
         <servlet-name>reportAttendance</servlet-name>
         <servlet-class>controller.reportAttendance</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Fap</servlet-name>
-        <url-pattern>/fap/timetable</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>Check_attendance</servlet-name>
+        <servlet-class>controller.Check_attendance</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>reportAttendance</servlet-name>
-        <url-pattern>/fap/reportAttendance</url-pattern>
+        <url-pattern>/student/reportAttendance</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Fap</servlet-name>
+        <url-pattern>/student/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Check_attendance</servlet-name>
+        <url-pattern>/lecture/Check_attendance</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

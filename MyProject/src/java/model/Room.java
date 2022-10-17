@@ -4,18 +4,16 @@
  */
 package model;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 /**
  *
  * @author win
  */
-public class Student {
+public class Room {
     private int id;
     private String name;
-    private ArrayList<Group> groups = new ArrayList<>();
-    private ArrayList<Attandance> attandances = new ArrayList<>();
+    private ArrayList<Session> sessions = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -33,19 +31,11 @@ public class Student {
         this.name = name;
     }
 
-    public ArrayList<Group> getGroups() {
-        return groups;
+    public ArrayList<Session> getSessions() {
+        return sessions;
     }
 
-    public void setGroups(ArrayList<Group> groups) {
-        this.groups = groups;
+    public void setSessions(ArrayList<Session> sessions) {
+        this.sessions = sessions;
     }
-
-    public ArrayList<Attandance> getAttandances() {
-        return attandances;
-    }
-
-    public void setAttandances(ArrayList<Attandance> attandances) {
-        this.attandances = attandances;
-    }   
 }

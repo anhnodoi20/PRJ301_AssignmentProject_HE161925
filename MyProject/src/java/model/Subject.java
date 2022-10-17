@@ -4,18 +4,16 @@
  */
 package model;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
 /**
  *
  * @author win
  */
-public class Student {
+public class Subject {
     private int id;
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
-    private ArrayList<Attandance> attandances = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -40,12 +38,4 @@ public class Student {
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
     }
-
-    public ArrayList<Attandance> getAttandances() {
-        return attandances;
-    }
-
-    public void setAttandances(ArrayList<Attandance> attandances) {
-        this.attandances = attandances;
-    }   
 }

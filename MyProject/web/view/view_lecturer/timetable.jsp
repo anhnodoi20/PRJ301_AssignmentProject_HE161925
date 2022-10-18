@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Time table</title>
         <style>
             .container{
                 margin-left: 180px;
@@ -265,8 +265,8 @@
                                                             <c:when test="${ses.attandated}">
                                                                 <p class="roomm" style="color: green">(attended)</p>
                                                             </c:when> 
-                                                            <c:when test="${ses.attandated == 'false'}">
-                                                                <p class="roomm" style="color: red">(absent)</p>
+                                                            <c:when test="${!ses.attandated}">
+                                                                <p class="roomm" style="color: red">(Not yet)</p>
                                                             </c:when> 
                                                             <c:otherwise>
                                                                 <p class="roomm" style="color: red">(fucking shit)</p>
@@ -290,7 +290,7 @@
                                 <div>
                                     <ul>
                                         <li>(<font color='green'>attended</font>): ${requestScope.lecturer.name} had attended this activity / ${requestScope.lecturer.name} đã tham gia hoạt động này</li>
-                                        <li>(<font color='red'>absent</font>): ${requestScope.lecturer.name} had NOT attended this activity / ${requestScope.lecturer.name} đã vắng mặt buổi này</li>   
+                                        <li>(<font color='red'>Not Yet</font>): ${requestScope.lecturer.name} had NOT meet this activity / ${requestScope.lecturer.name} chưa có ở mặt buổi này</li>   
                                         <li>(-): no data was given / chưa có dữ liệu</li> 
                                     </ul>
                                 </div>

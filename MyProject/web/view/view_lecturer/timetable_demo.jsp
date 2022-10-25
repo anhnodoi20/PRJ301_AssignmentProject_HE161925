@@ -264,7 +264,7 @@
                                                         <p class="roomm" style="color: green">(attended)</p>
                                                     </c:when> 
                                                     <c:when test="${ses.attandated == 'false'}">
-                                                        <p class="roomm" style="color: red">(absent)</p>
+                                                        <p class="roomm" style="color: red">(not yet)</p>
                                                     </c:when> 
                                                     <c:otherwise>
                                                         <p class="roomm" style="color: red">(fucking shit)</p>

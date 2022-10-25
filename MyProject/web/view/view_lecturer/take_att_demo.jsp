@@ -125,8 +125,8 @@
                                 <th>StudentID</th>
                                 <th>GroupID</th>
                                 <th>FULLNAME</th>
-                                <th>ABSENT</th>
                                 <th>PRESENT</th>
+                                <th>ABSENT</th>
                                 <th>COMMENT</th>
                             </tr>
                         </thead>

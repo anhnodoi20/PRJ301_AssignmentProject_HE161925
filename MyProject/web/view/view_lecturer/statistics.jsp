@@ -11,19 +11,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Statistics</title>
+        <title>Statistics Report Attendance</title>
+    <style>
+        .table{
+            width: 100%;
+            text-align: center;
+        }
+        
+        
+    </style>
+        
+        
     </head>
     <body>
-        Take attendance for Group: ${requestScope.ses.group.name} <br/>
-        Subject: ${requestScope.ses.group.subject.name} <br/>
-        Room: ${requestScope.ses.room.name} <br/>
-        Date: ${requestScope.ses.date} - ${requestScope.ses.slot.description}<br/>
-        Attended: <span style="color: red;"> ${requestScope.ses.attanded?"Yes":"No"} </span>
-
-
+        <a href="timetable?lid="> Back to time table</a>
+        <br/>
         
-            <input type="hidden" name="sesid" value="${param.id}"/>
-            <table border="1px">
+        Statistics Report Attendance of Group: ${requestScope.group.id} <br/>
+        
+        <c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
+                Lecturer: ${ses.lecturer.name} <br/>
+                Subject: ${ses.group.subject.name} <br/>
+                Room: ${ses.room.name}
+        </c:forEach>
+        
+            <table class="table" border="1px">
                 <tr>
                     <td>No.</td>
                     <td>Group</td>
@@ -31,10 +43,9 @@
                     <td>Full Name</td>
                     <!-- need a loop to present all ses -->
                     <c:forEach items="${requestScope.group.sessions}" var="ses">
-                        <td> session ${ses.id}</td>
+                        <td> session ${ses.index}</td>
                     </c:forEach>
-                    <td> Percent Absent</td>   
-                       
+                    <td> Percent Absent</td>                         
                 </tr>
 
                 <c:forEach items="${requestScope.group.students}" var="std" varStatus="loop"> <!-- vong lap so session -->
@@ -61,9 +72,11 @@
                                     </c:if>
                             </c:forEach>
                         </c:forEach>   
-                                
-                               
-                                
+                                    <c:forEach items="${requestScope.key}" var="map"  >
+                                    <c:if test="${map.key eq std.id}">
+                                        <td>${map.value}%</td>
+                                    </c:if>
+                                </c:forEach>   
                     </c:forEach>    
                 </tr>   
             </table>

@@ -185,6 +185,8 @@ public class SessionDBContext extends dal.DBContext<Session> {
             while (rs.next()) {
                 if (ses == null) {
                     ses = new Session();
+                    ses.setId(id);
+                    
                     Room r = new Room();
                     r.setId(rs.getInt("rid"));
                     r.setName(rs.getString("rname"));

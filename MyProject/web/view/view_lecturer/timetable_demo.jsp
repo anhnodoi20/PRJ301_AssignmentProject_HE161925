@@ -258,19 +258,34 @@
                                     <td>
                                         <c:forEach items="${requestScope.sessions}" var="ses">
                                             <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                                <a style="text-decoration: none" href="take_attandance?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
+                                                <!-- man hinh thong ke se hien ra o day ( trong the a o tren --> 
+                                                <a style="text-decoration: none" href="statistics?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">
+                                                    ${ses.group.name}-${ses.group.subject.name}
+                                                </a>
+                                                <p class="roomm"> ${ses.room.name} </p>
                                                 <c:choose>
                                                     <c:when test="${ses.attandated}">
                                                         <p class="roomm" style="color: green">(attended)</p>
                                                     </c:when> 
                                                     <c:when test="${ses.attandated == 'false'}">
-                                                        <p class="roomm" style="color: red">(not yet)</p>
+                                                        <p class="roomm" style="color: red">(Not Yet)</p>
                                                     </c:when> 
                                                     <c:otherwise>
                                                         <p class="roomm" style="color: red">(fucking shit)</p>
                                                     </c:otherwise>
                                                 </c:choose>
-                                                <p class="roomm"> ${ses.room.name} </p>
+
+                                                <!-- take attandance -->
+                                                <a href="take_attandance?id=${ses.id}">
+                                                    <c:choose>
+                                                        <c:when test="${ses.attandated}">
+                                                            <p class="roomm" style="color: green">Edit</p>
+                                                        </c:when> 
+                                                        <c:when test="${ses.attandated == 'false'}">
+                                                            <p class="roomm" style="color: red">Take</p>
+                                                        </c:when> 
+                                                    </c:choose>
+                                                </a>
                                             </c:if>  
                                         </c:forEach>
                                     </td>
@@ -288,7 +303,7 @@
                         <div>
                             <ul>
                                 <li>(<font color='green'>attended</font>): ${requestScope.lecturer.name} had attended this activity / ${requestScope.lecturer.name} đã tham gia hoạt động này</li>
-                                <li>(<font color='red'>absent</font>): ${requestScope.lecturer.name} had NOT attended this activity / ${requestScope.lecturer.name} đã vắng mặt buổi này</li>   
+                                <li>(<font color='red'>Not Yet</font>): ${requestScope.lecturer.name} had NOT attended this activity / ${requestScope.lecturer.name} đã vắng mặt buổi này</li>   
                                 <li>(-): no data was given / chưa có dữ liệu</li> 
                             </ul>
                         </div>

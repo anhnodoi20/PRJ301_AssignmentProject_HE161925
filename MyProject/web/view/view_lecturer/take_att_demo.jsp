@@ -13,29 +13,53 @@
         <title>Take Attendance</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="bootstrap.min.css" rel="stylesheet">	
         <style>
-
-            .a {
-                margin-top:10px;
-                margin-bottom: 50px;
+            .container{
+                margin-left: 180px;
+                margin-right: 180px;
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+                font-weight: normal;
+                font-size: 13px;
 
             }
+            .header1{
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 30px;
+            }
+            #head{
+                font-weight: normal;
+            }
+            .header1 strong{
+                font-size: 14px;
+
+            }
+            
+            .a {
+                width:100%;
+                height: 30px;
+                margin-top:10px;
+                margin-bottom: 50px;
+                background-color: gainsboro;
+            }
             .a1 {
+                margin-top: 7px;
                 float: right;
-                margin-right: 20px;
+                margin-right: 10px;
             }
             .a1 a, .a1 span {
                 border: none;
                 outline: none;
                 padding: 4px;
                 color: white;
-                background-color: #333;
+                background-color: #0FCC45;
                 border-radius: 5px;
             }
 
             .a2 {
+                float:left;
+                margin-top: 7px;
+                margin-left: 5px;
                 text-decoration: none;
             }
             .b table {
@@ -64,29 +88,25 @@
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <h1><span>FPT University Academic Portal</span> </h1>
+            <div class="header1">
+                <div id="head">
+                    <h1><span id="head">FPT University Academic Portal</span></h1>
                 </div>
-                <div class="col-md-4">
+                <div>
                     <table>
                         <tr>
-                            <td colspan="2" class="auto-style1"><strong>FAP mobile app (myFAP) is ready at</strong></td>
-
+                            <td><strong  style=" font-weight: bold; font-size: 13px;">FAP mobile app (myFAP) is ready at</strong></td>
                         </tr>
                         <tr>
-                            <td><a href="">
-                                    <img src="https://fap.fpt.edu.vn/images/app-store.svg" style="width: 120px; height: 40px" alt="apple store" />
-                                </a>
-                            </td>
-                            <td><a href="">
-                                    <img src="https://fap.fpt.edu.vn/images/play-store.svg" style="width: 120px; height: 40px" alt="google store" />
-                                </a>
-                            </td>
+                            <td><a href="https://apps.apple.com/app/id1527723314">
+                                    <img src="https://fap.fpt.edu.vn/images/app-store.svg" style="width: 120px; height: 40px" alt="apple store" /></a></td>
+                            <td><a href="https://play.google.com/store/apps/details?id=com.fuct">
+                                    <img src="https://fap.fpt.edu.vn/images/play-store.svg" style="width: 120px; height: 40px" alt="google store" /></a></td>
 
                         </tr>
-                    </table>
+                    </table> 
                 </div>
+
             </div>
 
 
@@ -94,13 +114,13 @@
             <div class="a">
                 <div class="a1">
                     <a href="">
-                        <span>leacturer</span>
+                        <span>${requestScope.ses.lecturer.name}</span>
                     </a> | 
                     <span> CAMPUS: FPTU-Hòa Lạc</span>
                 </div>
                 <div class="a2">
                     <span>
-                        <a href="timetable?lid=${requestScope.ses.lecturer.id}">Timetable of lecture</a>                   
+                        <a href="timetable?lid=${requestScope.ses.lecturer.id}" style="text-decoration: none">Timetable of lecture</a>                   
                     </span>
                 </div>
             </div>
@@ -160,5 +180,6 @@
                     </div>
                 </form> 
             </div>
+        </div>
     </body>
 </html>

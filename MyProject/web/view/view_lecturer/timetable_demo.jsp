@@ -94,6 +94,10 @@
             .date th{
                 font-weight: normal;
             }
+            
+            .gsub{
+                color: #2A7BC0;
+            }
 
             tbody td{
                 box-sizing: border-box;
@@ -164,7 +168,6 @@
                 margin-right: auto;
             }
             .roomm{
-                color:#FCB024;
                 padding: 1px;
                 margin-bottom: 0px;
                 margin-top: 0px;
@@ -259,7 +262,7 @@
                                         <c:forEach items="${requestScope.sessions}" var="ses">
                                             <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
                                                 <!-- man hinh thong ke se hien ra o day ( trong the a o tren --> 
-                                                <a style="text-decoration: none" href="statistics?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">
+                                                <a class="gsub" style="text-decoration: none" href="statistics?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">
                                                     ${ses.group.name}-${ses.group.subject.name}
                                                 </a>
                                                 <p class="roomm"> ${ses.room.name} </p>
@@ -275,7 +278,7 @@
                                                     </c:otherwise>
                                                 </c:choose>
 
-                                                <!-- take attandance -->
+                                                
                                                 <a href="take_attandance?id=${ses.id}">
                                                     <c:choose>
                                                         <c:when test="${ses.attandated}">

@@ -75,16 +75,20 @@ public class StatisticsController extends HttpServlet {
         // ses consist of att of student
         ArrayList<Student> liststudent = group.getStudents();
         ArrayList<Session> listses = group.getSessions();
-
+        
+        
+        double pt = 0;
         Map<Integer, Double> map = new HashMap<>();
         for (Student student : liststudent) {
             double pa = 0;
-            double count_ses_teached = 0;
             double count_ses_absent = 0;
+            double count_ses_teach = 0;
+            double count_ses_teached = 0;
             for (Session ses : listses) {
-                count_ses_teached++;
+                count_ses_teach++;
                 ArrayList<Attandance> listatts = ses.getAttandances();
                 if (ses.isAttandated()) {
+                    count_ses_teached++;
                     for (Attandance att : listatts) {
                         if (att.getStudent().getId() == student.getId()) {
                             if (att.isPresent() == false) {
@@ -94,11 +98,27 @@ public class StatisticsController extends HttpServlet {
                     }
                 }            
             }
-            pa = count_ses_absent / count_ses_teached * 100;
+            pa = count_ses_absent / count_ses_teach * 100;
             pa = Math.round(pa * 10) / 10;
             map.put(student.getId(), pa);
         }
-
+        double teached= 0;
+        int teached1 = 0;
+        for (Session ses : listses) {
+            if(ses.isAttandated()){
+                teached++;
+                teached1++;
+            }
+        }
+        teached = (int)teached;
+        
+        pt = teached/listses.size() * 100;
+        pt = Math.round(pt * 10) / 10;
+        
+        request.setAttribute("numberses", listses.size());
+        request.setAttribute("perteached", pt);
+        request.setAttribute("teached", teached1);
+        
         request.setAttribute("key", map);
         request.setAttribute("group", group);
         request.getRequestDispatcher("../view/view_lecturer/statistics.jsp").forward(request, response);

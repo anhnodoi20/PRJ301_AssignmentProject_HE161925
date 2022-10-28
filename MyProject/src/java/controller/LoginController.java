@@ -4,12 +4,14 @@
  */
 package controller;
 
+import dal.AccountDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import model.Account;
 
 /**
  *
@@ -34,7 +36,7 @@ public class LoginController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginController</title>");            
+            out.println("<title>Servlet LoginController</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet LoginController at " + request.getContextPath() + "</h1>");
@@ -55,7 +57,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.getRequestDispatcher("/view/home/login.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/home/login.jsp").forward(request, response);
     }
 
     /**
@@ -69,7 +71,17 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        AccountDBContext db = new AccountDBContext();
+        Account account = db.get(username, password);
+        if (account == null) {
+            response.getWriter().println();
+        } else {
+//            request.getSession().setAttribute("account", account);
+            response.getWriter().println("login successful!");
+        }
+
     }
 
     /**

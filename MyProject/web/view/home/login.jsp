@@ -107,15 +107,30 @@
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
+            
+            .button{
+                background-color: red;
+                color: red;
+            }
         </style>
+        <script>    
+            
+            function falselogin(){
+                window.alert("NGu, dang nhat ma cung sai");
+            }
+            
+        </script>
+        
+        
+        
     </head>
     <body>
         <div class="login-page">
             <div class="form">
-                <form class="login-form">
-                    <input type="text" placeholder="username" name="name"/>
-                    <input type="password" placeholder="password" name="pass"/>
-                    <button>login</button>
+                <form class="login-form" action="login" method="POST">
+                    <input type="text" placeholder="username" name="username"/>
+                    <input type="password" placeholder="password" name="password"/>
+                    <input type="submit" value="Sign In" class="button">
                 </form>
             </div>
         </div>

@@ -73,7 +73,8 @@
             }
             .nd h2{
                 font-weight: normal;
-
+                font-size: 25px;
+                padding-left: 20px;
             }
             .content1 h2{
                 margin-top: 50px;
@@ -94,7 +95,7 @@
             .date th{
                 font-weight: normal;
             }
-            
+
             .gsub{
                 color: #2A7BC0;
             }
@@ -178,6 +179,16 @@
             .datetime{
                 text-align: center;
             }
+            .slot{
+                background-color: #32CD32;
+                width: 70px;
+                color: white;
+                font-size: 10px;
+                text-align: center;
+                border-radius: 5px;
+                margin-bottom: 5px;
+                padding-bottom: 0.5px;
+            }
 
         </style>
 
@@ -209,22 +220,15 @@
                     <span id="homee"><a href="">Home</a>&nbsp;|&nbsp;<b>View Schedule</b></span>
                     <div class="choose">
                         <a href="">
-                            <span>Sonnt12</span></a> | <a href="">logout</a> |
+                            <span>Sonnt12</span></a> | <a href='logout'>logout</a> |
                         <span>CAMPUS: FPTU-Hòa Lạc</span>
                     </div>
                 </div>
                 <tr>
                 <div class="nd">
-                    <h2>Activities for
-                        <span>${requestScope.lecturer.name}</span></h2>
-                    <p>
-                        <b>Note</b>: These activities do not include extra-curriculum activities, such as
-                        club activities ...
-                    </p>
-                    <p>
-                        <b>Chú thích</b>: Các hoạt động trong bảng dưới không bao gồm hoạt động ngoại khóa,
-                        ví dụ như hoạt động câu lạc bộ ...
-                    </p>
+                    <h2>Lecturer of week
+                        </h2>
+
                     <div>
                         <p>
                             Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br />
@@ -237,17 +241,21 @@
                     </div>
                 </div>
 
+                <div>
+                    <form action="timetable" method="GET" class="format">
+                        <input type="hidden" name="lid" value="${sessionScope.account.lid}"/> 
+                        From:
+                        <input type="date" name="from" value="${requestScope.from}"/> 
+                        To:
+                        <input type="date" name="to" value="${requestScope.to}"/>
+                        <input type="submit" value="View"/> 
+                    </form>
+                </div>
+
                 <table class="timetable">
                     <thead class="date">
                     <th  rowspan="2">
-                        <form action="timetable" method="GET" class="format">
-                            <input type="hidden" name="lid" value="${param.lid}"/> 
-                            <p>From:</p>
-                            <input type="date" name="from" value="${requestScope.from}"/> <br/>
-                            <p>To:</p>
-                            <input type="date" name="to" value="${requestScope.to}"/>
-                            <input type="submit" value="View"/> 
-                        </form>
+
                         <c:forEach items="${requestScope.dates}" var="d">
                         <td class="datetime">${helper.getDayNameofWeek(d)} <br/> ${d}</td>
                         </c:forEach>
@@ -256,7 +264,9 @@
                     <tbody>
                         <c:forEach items="${requestScope.slots}" var="slot">
                             <tr>
-                                <td>${slot.description}</td>
+                                <td>
+                                    <p>  Slot ${slot.id}      </p>
+                                </td>
                                 <c:forEach items="${requestScope.dates}" var="d">
                                     <td>
                                         <c:forEach items="${requestScope.sessions}" var="ses">
@@ -278,17 +288,24 @@
                                                     </c:otherwise>
                                                 </c:choose>
 
-                                                
-                                                <a href="take_attandance?id=${ses.id}">
+
+                                                  <a href="take_attandance?id=${ses.id}">
                                                     <c:choose>
                                                         <c:when test="${ses.attandated}">
                                                             <p class="roomm" style="color: green">Edit</p>
                                                         </c:when> 
                                                         <c:when test="${ses.attandated == 'false'}">
                                                             <p class="roomm" style="color: red">Take</p>
+
                                                         </c:when> 
                                                     </c:choose>
                                                 </a>
+                                                <c:if test="${!ses.attandated}">
+                                                    <div class="slot">
+                                                        ${slot.description}
+                                                    </div>   
+                                                </c:if> 
+
                                             </c:if>  
                                         </c:forEach>
                                     </td>
@@ -306,7 +323,7 @@
                         <div>
                             <ul>
                                 <li>(<font color='green'>attended</font>): ${requestScope.lecturer.name} had attended this activity / ${requestScope.lecturer.name} đã tham gia hoạt động này</li>
-                                <li>(<font color='red'>Not Yet</font>): ${requestScope.lecturer.name} had NOT attended this activity / ${requestScope.lecturer.name} đã vắng mặt buổi này</li>   
+                                <li>(<font color='red'>Not Yet</font>): ${requestScope.lecturer.name} have NOT attended this activity / ${requestScope.lecturer.name} chưa tham gia buổi này</li>   
                                 <li>(-): no data was given / chưa có dữ liệu</li> 
                             </ul>
                         </div>

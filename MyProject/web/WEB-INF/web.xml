@@ -16,6 +16,10 @@
         <servlet-name>StatisticsController</servlet-name>
         <servlet-class>controller.StatisticsController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>controller.LogoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>StatisticsController</servlet-name>
         <url-pattern>/lecturer/statistics</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/lecturer/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

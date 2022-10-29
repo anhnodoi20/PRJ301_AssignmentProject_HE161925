@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="helper" class="util.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -129,7 +130,7 @@
             </div>
             <div>
                 <p> <span>Attendance for</span>
-                    <b>${requestScope.ses.lecturer.name}</b> at ${requestScope.ses.timeslot.description} on ${requestScope.ses.date}, Fall2022, at ${requestScope.ses.room.name}.
+                    <b>${requestScope.ses.lecturer.name}</b> at Slot  ${requestScope.ses.timeslot.id} on ${requestScope.ses.date}, Fall, at ${requestScope.ses.room.name}.
                     This is the session number ${requestScope.ses.id +1 } of the course.
                 </p>
             </div>

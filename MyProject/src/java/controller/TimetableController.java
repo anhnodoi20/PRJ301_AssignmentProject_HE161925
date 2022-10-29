@@ -14,8 +14,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.Date;
+import model.Account;
 import model.Lecturer;
 import model.Session;
 import model.TimeSlot;
@@ -36,7 +38,11 @@ public class TimetableController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        int lid = Integer.parseInt(request.getParameter("lid"));
+ //       int lid = Integer.parseInt(request.getParameter("lid"));
+        HttpSession session = request.getSession();
+        Account account = (Account)session.getAttribute("account");
+        int lid = account.getLid();
+        
         String raw_from = request.getParameter("from");
         String raw_to = request.getParameter("to");
         java.sql.Date from = null;

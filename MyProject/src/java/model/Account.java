@@ -12,6 +12,7 @@ public class Account {
     private String username;
     private String password;
     private String displayname;
+    private int lid;
 
     public String getUsername() {
         return username;
@@ -35,6 +36,14 @@ public class Account {
 
     public void setDisplayname(String displayname) {
         this.displayname = displayname;
+    }
+
+    public int getLid() {
+        return lid;
+    }
+
+    public void setLid(int lid) {
+        this.lid = lid;
     }
     
 }

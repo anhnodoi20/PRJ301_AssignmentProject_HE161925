@@ -121,7 +121,7 @@
                 </div>
                 <div class="a2">
                     <span>
-                        <a href="timetable?lid=${requestScope.ses.lecturer.id}" style="text-decoration: none">Timetable of lecture</a>                   
+                        <a href="timetable" style="text-decoration: none">Timetable of lecture</a>                   
                     </span>
                 </div>
             </div>

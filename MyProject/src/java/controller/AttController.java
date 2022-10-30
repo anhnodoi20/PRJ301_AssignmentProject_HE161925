@@ -41,10 +41,8 @@ public class AttController extends HttpServlet {
      */
      @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        
-        int sesid = Integer.parseInt(request.getParameter("id"));
-                
+    throws ServletException, IOException {       
+        int sesid = Integer.parseInt(request.getParameter("id"));               
         SessionDBContext sesDB = new SessionDBContext();
         Session ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
@@ -59,7 +57,7 @@ public class AttController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
+    @Override   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         Session ses = new Session();

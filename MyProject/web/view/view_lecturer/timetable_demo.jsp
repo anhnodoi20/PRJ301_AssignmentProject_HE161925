@@ -269,9 +269,9 @@
                                 </td>
                                 <c:forEach items="${requestScope.dates}" var="d">
                                     <td>
-                                        <c:forEach items="${requestScope.sessions}" var="ses">
+                                        <c:forEach items="${sessionScope.sessions}" var="ses">
                                             <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                                <!-- man hinh thong ke se hien ra o day ( trong the a o tren --> 
+                                             
                                                 <a class="gsub" style="text-decoration: none" href="statistics?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">
                                                     ${ses.group.name}-${ses.group.subject.name}
                                                 </a>

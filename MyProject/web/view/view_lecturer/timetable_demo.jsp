@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="helper" class="util.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="../../WEB-INF/tlds/customtag.tld" prefix="fpt"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -197,7 +198,7 @@
         <div class="container"> 
             <div class="header1">
                 <div id="head">
-                    <h1><span id="head">FPT University Academic Portal</span></h1>
+                    <h1><span id="head">FPT University Academic Portal </span></h1>
                 </div>
                 <div>
                     <table>
@@ -220,7 +221,12 @@
                     <span id="homee"><a href="">Home</a>&nbsp;|&nbsp;<b>View Schedule</b></span>
                     <div class="choose">
                         <a href="">
-                            <span>Sonnt12</span></a> | <a href='logout'>logout</a> |
+                            <span>${requestScope.lecturer.name} 
+                                <fpt:FptTag name="${requestScope.lecturer.name}"/> 
+                                <fpt:TaghasBody > b </fpt:TaghasBody>
+                            
+                            
+                            </span></a> | <a href='logout'>logout</a> |
                         <span>CAMPUS: FPTU-Hòa Lạc</span>
                     </div>
                 </div>

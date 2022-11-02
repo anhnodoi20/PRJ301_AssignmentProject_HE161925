@@ -198,7 +198,7 @@
         <div class="container"> 
             <div class="header1">
                 <div id="head">
-                    <h1><span id="head">FPT University Academic Portal </span></h1>
+                    <h1><span id="head">FPT University Academic Portal ${OnlineUsers} </span></h1>
                 </div>
                 <div>
                     <table>
@@ -224,7 +224,7 @@
                             <span>${requestScope.lecturer.name} 
                                 <fpt:FptTag name="${requestScope.lecturer.name}"/> 
                                 <fpt:TaghasBody > b </fpt:TaghasBody>
-                            
+                                
                             
                             </span></a> | <a href='logout'>logout</a> |
                         <span>CAMPUS: FPTU-Hòa Lạc</span>
@@ -275,7 +275,7 @@
                                 </td>
                                 <c:forEach items="${requestScope.dates}" var="d">
                                     <td>
-                                        <c:forEach items="${sessionScope.sessions}" var="ses">
+                                        <c:forEach items="${requestScope.sessions}" var="ses">
                                             <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
                                              
                                                 <a class="gsub" style="text-decoration: none" href="statistics?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">

@@ -72,8 +72,8 @@ public class TimetableController extends HttpServlet {
         
         SessionDBContext sesDB = new SessionDBContext();
         ArrayList<Session> sessions = sesDB.filter(lid, from, to);
-     //   request.setAttribute("sessions", sessions);
-        request.getSession().setAttribute("sessions",sessions);
+        request.setAttribute("sessions", sessions);
+       // request.getSession().setAttribute("sessions",sessions);
         
         LecturerDBContext lecDB = new LecturerDBContext();
         Lecturer lecturer = lecDB.get(lid);

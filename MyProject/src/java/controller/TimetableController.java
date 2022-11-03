@@ -41,8 +41,7 @@ public class TimetableController extends HttpServlet {
  //       int lid = Integer.parseInt(request.getParameter("lid"));
         HttpSession session = request.getSession();
         Account account = (Account)session.getAttribute("account");
-        int lid = account.getLid();
-        
+        int lid = account.getLid();       
         String raw_from = request.getParameter("from");
         String raw_to = request.getParameter("to");
         java.sql.Date from = null;

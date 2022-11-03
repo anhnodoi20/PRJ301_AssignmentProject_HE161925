@@ -221,7 +221,7 @@
                     <span id="homee"><a href="">Home</a>&nbsp;|&nbsp;<b>View Schedule</b></span>
                     <div class="choose">
                         <a href="">
-                            <span>${requestScope.lecturer.name} 
+                            <span> 
                                 <fpt:FptTag name="${requestScope.lecturer.name}"/> 
                                 <fpt:TaghasBody > b </fpt:TaghasBody>
                                 

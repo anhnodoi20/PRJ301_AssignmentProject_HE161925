@@ -1,4 +1,4 @@
-package CustomTag;
+    package CustomTag;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -9,7 +9,6 @@ import jakarta.servlet.jsp.JspException;
 import jakarta.servlet.jsp.JspWriter;
 import jakarta.servlet.jsp.tagext.JspFragment;
 import jakarta.servlet.jsp.tagext.SimpleTagSupport;
-import java.io.StringWriter;
 
 /**
  *

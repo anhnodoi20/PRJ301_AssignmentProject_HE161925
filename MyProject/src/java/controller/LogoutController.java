@@ -33,7 +33,7 @@ public class LogoutController extends HttpServlet {
         
         request.getSession().setAttribute("account", null);
    //     response.getWriter().println("logout successful!");
-        response.sendRedirect("http://localhost:9999/MyProject/login");
+        response.sendRedirect("http://localhost:9999/MyProject/login.jsp");
         
     }
 

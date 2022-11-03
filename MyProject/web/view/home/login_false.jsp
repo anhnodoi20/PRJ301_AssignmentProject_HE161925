@@ -128,8 +128,8 @@
         <div class="login-page">
             <div class="form">
                 <form class="login-form" action="login" method="POST">
-                    <input type="text" placeholder="username" name="username"/>
-                    <input type="password" placeholder="password" name="password"/>
+                    <input type="text" placeholder="username" name="username"/> ${requestScope.usernamemess}
+                    <input type="password" placeholder="password" name="password"/> ${requestScope.passwordmess}
                     <input type="submit" value="Sign In" class="button">
                 </form>
             </div>

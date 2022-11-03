@@ -65,16 +65,12 @@ public class LoginController extends HttpServlet {
         AccountDBContext db = new AccountDBContext();
         Account account = db.get(username, password);
         if (account == null) {
-            response.getWriter().println("ngu");
         } else {
              HttpSession session = request.getSession();
              session.setAttribute("account", account);
-             response.getWriter().println(account.getLid());
-             response.sendRedirect("http://localhost:9999/MyProject/lecturer/timetable");
+             response.sendRedirect("/MyProject/lecturer/timetable");
         }
-
     }
-
     /**
      * Returns a short description of the servlet.
      *

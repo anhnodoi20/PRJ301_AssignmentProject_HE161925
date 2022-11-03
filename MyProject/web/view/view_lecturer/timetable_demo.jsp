@@ -173,6 +173,7 @@
                 padding: 1px;
                 margin-bottom: 0px;
                 margin-top: 0px;
+                
             }
             .format{
                 text-align: center;
@@ -224,32 +225,32 @@
                             <span> 
                                 <fpt:FptTag name="${requestScope.lecturer.name}"/> 
                                 <fpt:TaghasBody > b </fpt:TaghasBody>
-                                
-                            
-                            </span></a> | <a href='logout'>logout</a> |
-                        <span>CAMPUS: FPTU-Hòa Lạc</span>
+
+
+                                </span></a> | <a href='logout'>logout</a> |
+                            <span>CAMPUS: FPTU-Hòa Lạc</span>
+                        </div>
                     </div>
-                </div>
-                <tr>
-                <div class="nd">
-                    <h2>Lecturer of week
+                    <tr>
+                    <div class="nd">
+                        <h2>Lecturer of week
                         </h2>
 
-                    <div>
-                        <p>
-                            Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br />
-                            Các phòng bắt đầu bằng BE thuộc tòa nhà Beta. VD: BE,..<br />
-                            Các phòng bắt đầu bằng G thuộc tòa nhà Gamma. VD: G201,...<br />
-                            Các phòng tập bằng đầu bằng R thuộc khu vực sân tập Vovinam.<br/>
-                            Các phòng bắt đầu bằng DE thuộc tòa nhà Delta. VD: DE,..<br/>
-                            Little UK (LUK) thuộc tầng 5 tòa nhà Delta
-                        </p>
+                        <div>
+                            <p>
+                                Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br />
+                                Các phòng bắt đầu bằng BE thuộc tòa nhà Beta. VD: BE,..<br />
+                                Các phòng bắt đầu bằng G thuộc tòa nhà Gamma. VD: G201,...<br />
+                                Các phòng tập bằng đầu bằng R thuộc khu vực sân tập Vovinam.<br/>
+                                Các phòng bắt đầu bằng DE thuộc tòa nhà Delta. VD: DE,..<br/>
+                                Little UK (LUK) thuộc tầng 5 tòa nhà Delta
+                            </p>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <form action="timetable" method="GET" class="format">
-                        <input type="hidden" name="lid" value="${sessionScope.account.lid}"/> 
+                    <div>
+                        <form action="timetable" method="GET" class="format">
+                            <input type="hidden" name="lid" value="${sessionScope.account.lid}"/> 
                         From:
                         <input type="date" name="from" value="${requestScope.from}"/> 
                         To:
@@ -277,7 +278,7 @@
                                     <td>
                                         <c:forEach items="${requestScope.sessions}" var="ses">
                                             <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                             
+
                                                 <a class="gsub" style="text-decoration: none" href="statistics?gid=${ses.group.id}&lid=${ses.lecturer.id}&subid=${ses.group.subject.id}">
                                                     ${ses.group.name}-${ses.group.subject.name}
                                                 </a>
@@ -295,16 +296,8 @@
                                                 </c:choose>
 
 
-                                                  <a href="take_attandance?id=${ses.id}">
-                                                    <c:choose>
-                                                        <c:when test="${ses.attandated}">
-                                                            <p class="roomm" style="color: green">Edit</p>
-                                                        </c:when> 
-                                                        <c:when test="${ses.attandated == 'false'}">
-                                                            <p class="roomm" style="color: red">Take</p>
-
-                                                        </c:when> 
-                                                    </c:choose>
+                                                <a href="take_attandance?id=${ses.id}">
+                                                    <p class="roomm" style="color: green"> <fpt:Test check="${ses.attandated}"/></p>     
                                                 </a>
                                                 <c:if test="${!ses.attandated}">
                                                     <div class="slot">

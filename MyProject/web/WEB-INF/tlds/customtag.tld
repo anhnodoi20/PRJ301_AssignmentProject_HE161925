@@ -35,4 +35,15 @@
     <tag-class>CustomTag.TaghasBody</tag-class>
     <body-content>scriptless</body-content>
   </tag>
+  <tag>
+    <name>Test</name>
+    <tag-class>CustomTag.Test</tag-class>
+    <body-content>empty</body-content>
+    <attribute>
+      <name>check</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+      <type>java.lang.Boolean</type>
+    </attribute>
+  </tag>
 </taglib>

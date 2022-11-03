@@ -40,7 +40,7 @@ public class LoginFilter implements Filter {
         String user = request.getParameter("username");
         String pass = request.getParameter("password");
         if( user.length() < 3 || pass.length() < 3) {
-            request.setAttribute("usernamemess", "Tai Khoan khong hop le");
+            request.setAttribute("usernamemess", "Tai Khoan mat khau khong hop le");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
          //   request.getRequestDispatcher("####").forward(request, response);

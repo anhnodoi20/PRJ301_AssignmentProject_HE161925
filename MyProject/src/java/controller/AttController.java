@@ -47,7 +47,6 @@ public class AttController extends HttpServlet {
         Session ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
         request.getRequestDispatcher("../view/view_lecturer/take_att_demo.jsp").forward(request, response);
-       // request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
     } 
 
     /** 
@@ -59,7 +58,7 @@ public class AttController extends HttpServlet {
      */
     @Override   
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    throws ServletException, IOException {    
         Session ses = new Session();
         ses.setId(Integer.parseInt(request.getParameter("sesid")));
         String[] stdids = request.getParameterValues("stdid");
@@ -74,7 +73,7 @@ public class AttController extends HttpServlet {
         }
         SessionDBContext db = new SessionDBContext();
         db.update(ses);
-        response.sendRedirect("take_attandance?id="+ses.getId());
+   //     response.sendRedirect("take_attandance?id="+ses.getId());
     }
 
     /** 

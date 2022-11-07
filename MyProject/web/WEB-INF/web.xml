@@ -40,20 +40,22 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/lecturer/logout</url-pattern>
     </servlet-mapping>
-    <filter>
+<!--    <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>filter.LoginFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
         <servlet-name>LoginController</servlet-name>
-    </filter-mapping>
+    </filter-mapping>-->
+
     <listener>
-        <listener-class>listener.MyListener</listener-class>
+        <listener-class>listener.OnlineUserListener</listener-class>
     </listener>
+    
     <session-config>
         <session-timeout>
-            30
+            10
         </session-timeout>
     </session-config>
 </web-app>

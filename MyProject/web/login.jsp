@@ -124,8 +124,7 @@
             
             function falselogin(){
                 window.alert("NGu, dang nhat ma cung sai");
-            }
-            
+            }           
         </script>
         
         
@@ -134,9 +133,10 @@
     <body>
         <div class="login-page">
             <div class="form">
-                <form class="login-form" action="login" method="POST">
-                    <input type="text" placeholder="username" name="username"/> 
-                    <input type="password" placeholder="password" name="password"/> <p class="messuer">${requestScope.usernamemess}</p>
+                <form class="login-form" action="login" method="POST"  >
+                    <input type="text" placeholder="username" name="username" value="${param.username}"/> 
+                    <input type="password" placeholder="password" name="password" value="${param.password}"/> 
+                    <p class="messuer">${requestScope.mess}</p>
                     <input type="submit" value="Sign In" class="button">
                 </form>
             </div>

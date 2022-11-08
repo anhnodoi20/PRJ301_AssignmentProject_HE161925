@@ -16,7 +16,8 @@ public class Student {
     private String name;
     private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Attandance> attandances = new ArrayList<>();
-
+    
+    
     public int getId() {
         return id;
     }

@@ -28,6 +28,14 @@
         <servlet-name>timetabeController</servlet-name>
         <servlet-class>controllerStudent.timetabeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GroupofStudentController</servlet-name>
+        <servlet-class>controllerStudent.GroupofStudentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowPresentController</servlet-name>
+        <servlet-class>controllerStudent.ShowPresentController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -66,6 +74,14 @@
     <servlet-mapping>
         <servlet-name>timetabeController</servlet-name>
         <url-pattern>/student/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupofStudentController</servlet-name>
+        <url-pattern>/student/group</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowPresentController</servlet-name>
+        <url-pattern>/student/report</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

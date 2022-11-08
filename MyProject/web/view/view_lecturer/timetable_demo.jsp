@@ -173,7 +173,7 @@
                 padding: 1px;
                 margin-bottom: 0px;
                 margin-top: 0px;
-                
+
             }
             .format{
                 text-align: center;
@@ -224,44 +224,61 @@
                         <a href="">
                             <span> 
                                 <fpt:FptTag name="${requestScope.lecturer.name}"/> 
-                                <fpt:TaghasBody > b </fpt:TaghasBody>
-                                ${OnlineUsers}
-                                </span></a> | <a href='logout'>logout</a> |
-                            <span>CAMPUS: FPTU-Hòa Lạc</span>
-                        </div>
+                                <fpt:TaghasBody >  </fpt:TaghasBody>
+                            </span></a> | <a href='logout'>logout</a> |
+                        <span>CAMPUS: FPTU-Hòa Lạc</span>
                     </div>
-                    <tr>
-                    <div class="nd">
-                        <h2>Lecturer of week
-                        </h2>
-
-                        <div>
-                            <p>
-                                Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br />
-                                Các phòng bắt đầu bằng BE thuộc tòa nhà Beta. VD: BE,..<br />
-                                Các phòng bắt đầu bằng G thuộc tòa nhà Gamma. VD: G201,...<br />
-                                Các phòng tập bằng đầu bằng R thuộc khu vực sân tập Vovinam.<br/>
-                                Các phòng bắt đầu bằng DE thuộc tòa nhà Delta. VD: DE,..<br/>
-                                Little UK (LUK) thuộc tầng 5 tòa nhà Delta
-                            </p>
-                        </div>
-                    </div>
+                </div>
+                <tr>
+                <div class="nd">
+                    <h2>Lecturer of week
+                    </h2>
 
                     <div>
-                        <form action="timetable" method="GET" class="format">
-                            <input type="hidden" name="lid" value="${sessionScope.account.lid}"/> 
-                        From:
-                        <input type="date" name="from" value="${requestScope.from}"/> 
-                        To:
-                        <input type="date" name="to" value="${requestScope.to}"/>
-                        <input type="submit" value="View"/> 
+                        <p>
+                            Các phòng bắt đầu bằng AL thuộc tòa nhà Alpha. VD: AL...<br />
+                            Các phòng bắt đầu bằng BE thuộc tòa nhà Beta. VD: BE,..<br />
+                            Các phòng bắt đầu bằng G thuộc tòa nhà Gamma. VD: G201,...<br />
+                            Các phòng tập bằng đầu bằng R thuộc khu vực sân tập Vovinam.<br/>
+                            Các phòng bắt đầu bằng DE thuộc tòa nhà Delta. VD: DE,..<br/>
+                            Little UK (LUK) thuộc tầng 5 tòa nhà Delta
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <!--                        <form action="timetable" method="GET" class="format">
+                                                <input type="hidden" name="lid" value="${sessionScope.account.lid}"/> 
+                                            From:
+                                            <input type="date" name="from" value="${requestScope.from}"/> 
+                                            To:
+                                            <input type="date" name="to" value="${requestScope.to}"/>
+                                            <input type="submit" value="View"/> 
+                                        </form>-->
+
+                    <form action="timetable" method="GET" class="header">
+                        <input type="hidden" name="lid" value="${param.lid}"/>
+                        Year: <select name="year">
+                            <option value="${requestScope.year}"> <c:out value = "${requestScope.year}"/></option>
+                            <c:forEach var="i" begin="${requestScope.year}" end="${requestScope.year + 3}" >
+                                <option value="${i-2}"> <c:out value = "${i-2}"/></option>
+                            </c:forEach>
+                        </select> <br/>
+                        Week:<select name="week">
+                            <option value=${requestScope.daymonth}>${requestScope.daymonth}</option>
+                            <c:forEach items="${requestScope.daymonths}" var="daymonth" >
+                                <option value="${daymonth}">${daymonth}</option>
+                            </c:forEach>
+                        </select> 
+                        <input type="submit" value="View"/>
                     </form>
+
+
                 </div>
 
                 <table class="timetable">
                     <thead class="date">
                     <th  rowspan="2">
-
                         <c:forEach items="${requestScope.dates}" var="d">
                         <td class="datetime">${helper.getDayNameofWeek(d)} <br/> ${d}</td>
                         </c:forEach>
@@ -293,7 +310,6 @@
                                                         <p class="roomm" style="color: red">(fucking shit)</p>
                                                     </c:otherwise>
                                                 </c:choose>
-
 
                                                 <a href="take_attandance?id=${ses.id}">
                                                     <p class="roomm" style="color: green"> <fpt:Test check="${ses.attandated}"/></p>     

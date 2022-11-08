@@ -1,6 +1,6 @@
 <%-- 
-    Document   : take_att_demo
-    Created on : Oct 24, 2022, 8:40:17 PM
+    Document   : take_att_sus
+    Created on : Nov 8, 2022, 5:19:37 AM
     Author     : win
 --%>
 
@@ -128,63 +128,16 @@
             <div>
                 <h1>Take Attendance</h1>  
             </div>
-            <div>
-                <p> <span>Attendance for</span>
-                    <b>${requestScope.ses.lecturer.name}</b> at Slot  ${requestScope.ses.timeslot.id} on ${requestScope.ses.date}, Fall, at ${requestScope.ses.room.name}.
-                    This is the session number ${requestScope.ses.id +1 } of the course.
-                </p>
-            </div>
-            <div class="b">
-                <form action="take_attandance" method="POST">
-                    <input type="hidden" name="sesid" value="${param.id}"/>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>NO</th>
-                                <th>StudentID</th>
-                                <th>GroupID</th>
-                                <th>FULLNAME</th>
-                                <th>PRESENT</th>
-                                <th>ABSENT</th>
-                                <th>COMMENT</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${requestScope.ses.attandances}" var="a" varStatus="loop">
-                                <tr>
-                                    <td>${loop.index+1}</td>
-                                    <td>${a.student.id}
-                                        <input type="hidden" name="stdid" value="${a.student.id}"/>
-                                    </td>
-                                    <td>${requestScope.ses.group.id}</td>
-                                    <td>${a.student.name}</td>
-                                    <td><input type="radio"
-                                               <c:if test="${a.present}">
-                                                   checked="checked"
-                                               </c:if>
-                                               name="present${a.student.id}" value="present" /></td>
-                                    <td><input type="radio"
-                                               <c:if test="${!a.present}">
-                                                   checked="checked"
-                                               </c:if>
-                                               name="present${a.student.id}" value="absent" /></td>
-                                    <td><input type="text" name="description${a.student.id}" value="${a.description}" /></td>
-                                </tr>   
+            <h2 style="color: green"> Take attendance successful!</h2>
 
-                            </c:forEach> 
-                        </tbody>
-                    </table>
-                    <div class="save">
-                        <input  type="submit" value="Save"/>
-                    </div>
-                </form> 
-            </div>
+
             <div>
                 <br />
                 <b>Mọi góp ý, thắc mắc xin liên hệ: </b><span>Phòng dịch vụ sinh viên</span>: Email: <a href="">dichvusinhvien@fe.edu.vn</a>.
                 Điện thoại: 035xxxxxxx <span> </span>
                 <br />
-            </div>     
+            </div>                         
+
         </div>
     </body>
 </html>

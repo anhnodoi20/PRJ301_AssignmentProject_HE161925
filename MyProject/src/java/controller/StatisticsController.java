@@ -9,12 +9,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import model.Account;
 import model.Attandance;
 import model.Group;
 import model.Session;
@@ -64,64 +66,68 @@ public class StatisticsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Account account = (Account) session.getAttribute("account");
+        if (account == null) {
+            response.sendRedirect("../login");
+        } else {
+            int groupid = Integer.parseInt(request.getParameter("gid"));
+            int lid = Integer.parseInt(request.getParameter("lid"));
+            int subid = Integer.parseInt(request.getParameter("subid"));
+            GroupDBContext groupDB = new GroupDBContext();
+            Group group = groupDB.get(groupid, lid, subid);
 
-        int groupid = Integer.parseInt(request.getParameter("gid"));
-        int lid = Integer.parseInt(request.getParameter("lid"));
-        int subid = Integer.parseInt(request.getParameter("subid"));
-        GroupDBContext groupDB = new GroupDBContext();
-        Group group = groupDB.get(groupid, lid, subid);
+            // group consist of ses 
+            // ses consist of att of student
+            ArrayList<Student> liststudent = group.getStudents();
+            ArrayList<Session> listses = group.getSessions();
 
-        // group consist of ses 
-        // ses consist of att of student
-        ArrayList<Student> liststudent = group.getStudents();
-        ArrayList<Session> listses = group.getSessions();
-        
-        
-        double pt = 0;
-        Map<Integer, Double> map = new HashMap<>();
-        for (Student student : liststudent) {
-            double pa = 0;
-            double count_ses_absent = 0;
-            double count_ses_teach = 0;
-            double count_ses_teached = 0;
-            for (Session ses : listses) {
-                count_ses_teach++;
-                ArrayList<Attandance> listatts = ses.getAttandances();
-                if (ses.isAttandated()) {
-                    count_ses_teached++;
-                    for (Attandance att : listatts) {
-                        if (att.getStudent().getId() == student.getId()) {
-                            if (att.isPresent() == false) {
-                                count_ses_absent++;
+            double pt = 0;
+            Map<Integer, Double> map = new HashMap<>();
+            for (Student student : liststudent) {
+                double pa = 0;
+                double count_ses_absent = 0;
+                double count_ses_teach = 0;
+                double count_ses_teached = 0;
+                for (Session ses : listses) {
+                    count_ses_teach++;
+                    ArrayList<Attandance> listatts = ses.getAttandances();
+                    if (ses.isAttandated()) {
+                        count_ses_teached++;
+                        for (Attandance att : listatts) {
+                            if (att.getStudent().getId() == student.getId()) {
+                                if (att.isPresent() == false) {
+                                    count_ses_absent++;
+                                }
                             }
                         }
                     }
-                }            
+                }
+                pa = count_ses_absent / count_ses_teach * 100;
+                pa = Math.round(pa * 10) / 10;
+                map.put(student.getId(), pa);
             }
-            pa = count_ses_absent / count_ses_teach * 100;
-            pa = Math.round(pa * 10) / 10;
-            map.put(student.getId(), pa);
-        }
-        double teached= 0;
-        int teached1 = 0;
-        for (Session ses : listses) {
-            if(ses.isAttandated()){
-                teached++;
-                teached1++;
+            double teached = 0;
+            int teached1 = 0;
+            for (Session ses : listses) {
+                if (ses.isAttandated()) {
+                    teached++;
+                    teached1++;
+                }
             }
+            teached = (int) teached;
+
+            pt = teached / listses.size() * 100;
+            pt = Math.round(pt * 10) / 10;
+
+            request.setAttribute("numberses", listses.size());
+            request.setAttribute("perteached", pt);
+            request.setAttribute("teached", teached1);
+
+            request.setAttribute("key", map);
+            request.setAttribute("group", group);
+            request.getRequestDispatcher("../view/view_lecturer/statistics.jsp").forward(request, response);
         }
-        teached = (int)teached;
-        
-        pt = teached/listses.size() * 100;
-        pt = Math.round(pt * 10) / 10;
-        
-        request.setAttribute("numberses", listses.size());
-        request.setAttribute("perteached", pt);
-        request.setAttribute("teached", teached1);
-        
-        request.setAttribute("key", map);
-        request.setAttribute("group", group);
-        request.getRequestDispatcher("../view/view_lecturer/statistics.jsp").forward(request, response);
     }
 
     /**
@@ -135,7 +141,6 @@ public class StatisticsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
     }
 
     /**

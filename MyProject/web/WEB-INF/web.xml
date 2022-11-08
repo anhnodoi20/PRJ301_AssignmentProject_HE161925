@@ -20,6 +20,10 @@
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.LogoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewAttController</servlet-name>
+        <servlet-class>controller.ViewAttController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -40,7 +44,7 @@
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/lecturer/logout</url-pattern>
     </servlet-mapping>
-<!--    <filter>
+    <!--    <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>filter.LoginFilter</filter-class>
     </filter>
@@ -48,14 +52,16 @@
         <filter-name>LoginFilter</filter-name>
         <servlet-name>LoginController</servlet-name>
     </filter-mapping>-->
-
     <listener>
         <listener-class>listener.OnlineUserListener</listener-class>
     </listener>
-    
+    <servlet-mapping>
+        <servlet-name>ViewAttController</servlet-name>
+        <url-pattern>/lecturer/viewslot</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            10
+            60
         </session-timeout>
     </session-config>
 </web-app>

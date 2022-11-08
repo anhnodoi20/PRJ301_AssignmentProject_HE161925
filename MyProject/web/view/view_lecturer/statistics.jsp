@@ -40,7 +40,7 @@
                 font-weight:bold ;
                 padding: 7px;
             }
-            
+
 
 
 
@@ -77,7 +77,7 @@
             <c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
                 Lecturer: ${ses.lecturer.name} <br/>
                 Subject: ${ses.group.subject.name} <br/>
-                Room: ${ses.room.name}
+
             </c:forEach>
 
             <table class="table" border="1px">
@@ -88,10 +88,22 @@
                     <td>Full Name</td>
                     <td> Percent Absent</td>
                     <!-- need a loop to present all ses -->
+
                     <c:forEach items="${requestScope.group.sessions}" var="ses">
-                        <td> session ${ses.index}</td>
+                        <td>
+                            <c:if test="${ses.attandated}" >
+                                <a href="viewslot?id=${ses.id}"  style="text-decoration:none ">
+                                    session ${ses.index}  <br/>
+                                    (${ses.date}) 
+                                </a> 
+                            </c:if>
+                            <c:if test="${!ses.attandated}" >
+                                session ${ses.index}  <br/>
+                                (${ses.date}) 
+                            </c:if>
+                        </td>
                     </c:forEach>
-                                             
+
                 </tr>
 
                 <c:forEach items="${requestScope.group.students}" var="std" varStatus="loop"> <!-- vong lap so session -->
@@ -125,13 +137,18 @@
                                 </c:if>
                             </c:forEach>
                         </c:forEach>   
-                        
+
                     </c:forEach>    
                 </tr>   
             </table>
-                <br/>
-                Giang vien sonnt5 da day ${requestScope.teached}/${requestScope.numberses} (${requestScope.perteached}%)
-                
+            <br/>
+            Giang vien sonnt5 da day ${requestScope.teached}/${requestScope.numberses} (${requestScope.perteached}%)      
+            <div>
+                <br />
+                <b>Mọi góp ý, thắc mắc xin liên hệ: </b><span>Phòng dịch vụ sinh viên</span>: Email: <a href="">dichvusinhvien@fe.edu.vn</a>.
+                Điện thoại: 035xxxxxxx <span> </span>
+                <br />
+            </div>       
         </div>
     </body>
 </html>

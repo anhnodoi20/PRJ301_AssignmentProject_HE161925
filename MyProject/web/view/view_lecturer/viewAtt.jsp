@@ -1,6 +1,6 @@
 <%-- 
-    Document   : take_att_demo
-    Created on : Oct 24, 2022, 8:40:17 PM
+    Document   : viewAtt
+    Created on : Nov 8, 2022, 10:26:29 AM
     Author     : win
 --%>
 
@@ -126,12 +126,12 @@
                 </div>
             </div>
             <div>
-                <h1>Take Attendance</h1>  
+                <h1>View Attendance</h1>  
             </div>
             <div>
                 <p> <span>Attendance for</span>
                     <b>${requestScope.ses.lecturer.name}</b> at Slot  ${requestScope.ses.timeslot.id} on ${requestScope.ses.date}, Fall, at ${requestScope.ses.room.name}.
-                    This is the session number ${requestScope.ses.id +1 } of the course.
+                    This is the session number ${requestScope.ses.index } of the course.
                 </p>
             </div>
             <div class="b">
@@ -145,7 +145,6 @@
                                 <th>GroupID</th>
                                 <th>FULLNAME</th>
                                 <th>PRESENT</th>
-                                <th>ABSENT</th>
                                 <th>COMMENT</th>
                             </tr>
                         </thead>
@@ -158,25 +157,20 @@
                                     </td>
                                     <td>${requestScope.ses.group.id}</td>
                                     <td>${a.student.name}</td>
-                                    <td><input type="radio"
-                                               <c:if test="${a.present}">
-                                                   checked="checked"
-                                               </c:if>
-                                               name="present${a.student.id}" value="present" /></td>
-                                    <td><input type="radio"
-                                               <c:if test="${!a.present}">
-                                                   checked="checked"
-                                               </c:if>
-                                               name="present${a.student.id}" value="absent" /></td>
-                                    <td><input type="text" name="description${a.student.id}" value="${a.description}" /></td>
+                                    <td>
+                                        <c:if test="${a.present}">
+                                            <p style="color: green">present</p>
+                                        </c:if>
+                                        <c:if test="${!a.present}">
+                                            <p style="color: red"> absent</p>
+                                        </c:if>
+                                    </td>
+                                    <td>${a.description}</td>
                                 </tr>   
 
                             </c:forEach> 
                         </tbody>
                     </table>
-                    <div class="save">
-                        <input  type="submit" value="Save"/>
-                    </div>
                 </form> 
             </div>
             <div>

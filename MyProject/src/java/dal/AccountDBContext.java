@@ -4,6 +4,7 @@
  */
 package dal;
 
+import java.lang.reflect.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
+import model.Feature;
+import model.Role;
 
 /**
  *
@@ -20,25 +23,61 @@ public class AccountDBContext extends DBContext<Account>{
 
     
     public Account get(String username, String password) {
-        try {
-            String sql = "SELECT username,lid FROM Account \n"
-                    + "WHERE username = ? AND [password] = ?";
+       try {
+            String sql = "SELECT \n"
+                    + "	a.username,a.displayname, a.id\n"
+                    + "	,r.rid,r.rname\n"
+                    + "	,f.fid,f.fname,f.url\n"
+                    + "	FROM Account a \n"
+                    + "	LEFT JOIN Role_Account ra ON a.username = ra.username\n"
+                    + "	LEFT JOIN [Role] r ON r.rid = ra.rid\n"
+                    + "	LEFT JOIN [Role_Feature] rf ON rf.rid = r.rid\n"
+                    + "	LEFT JOIN [Feature] f ON f.fid = rf.fid\n"
+                    + "WHERE a.username = ? AND a.password = ?";
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setString(1, username);
             stm.setString(2, password);
             ResultSet rs = stm.executeQuery();
-            if(rs.next())
-            {
-                Account account = new Account();
-                account.setUsername(username);
-                account.setLid(rs.getInt("lid"));
-                return account;
+            Account account = null;
+            Role currentRole = new Role();
+            currentRole.setId(-1);
+            while (rs.next()) {
+                if (account == null) {
+                    account = new Account();
+                    account.setUsername(username);
+                    account.setLid(rs.getInt("id"));
+                    account.setDisplayname(rs.getString("displayname"));
+                }
+                int rid = rs.getInt("rid");
+                if(rid!=0)
+                {
+                    if(rid!=currentRole.getId())
+                    {
+                        currentRole = new Role();
+                        currentRole.setId(rs.getInt("rid"));
+                        currentRole.setName(rs.getString("rname"));
+                        account.getRoles().add(currentRole);
+                    }
+                }
+                int fid = rs.getInt("fid");
+                if(fid!=0)
+                {
+                    Feature f = new Feature();
+                    f.setId(fid);
+                    f.setName(rs.getString("fname"));
+                    f.setUrl(rs.getString("url"));
+                    currentRole.getFeatures().add(f);
+                }
+
             }
+            return account;
         } catch (SQLException ex) {
             Logger.getLogger(AccountDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Error get Account");
         }
-        return null;
+        return null;    
     }
+    
     
     
     @Override

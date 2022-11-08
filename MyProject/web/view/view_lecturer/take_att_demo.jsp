@@ -115,13 +115,14 @@
             <div class="a">
                 <div class="a1">
                     <a href="" style="text-decoration: none">
-                        <span>${requestScope.ses.lecturer.name}</span>
+                        <span>${sessionScope.account.displayname}</span>
                     </a> | <a href='logout' style="text-decoration: none" >logout</a> |
                     <span> CAMPUS: FPTU-Hòa Lạc</span>
                 </div>
                 <div class="a2">
                     <span>
-                        <a href="timetable" style="text-decoration: none">Timetable of lecture</a>                   
+                        <a href="" style="text-decoration: none">home</a> |
+                        <a href="timetable" style="text-decoration: none">Timetable of lecture</a>                  
                     </span>
                 </div>
             </div>

@@ -90,10 +90,13 @@ public class SessionDBContext extends dal.DBContext<Session> {
             }
         } catch (SQLException ex) {
             Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("error get session");
         }
         return sessions;
     }
 
+    
+    
     @Override
     public void insert(Session model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

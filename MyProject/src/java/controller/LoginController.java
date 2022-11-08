@@ -11,7 +11,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import model.Account;
+import model.Role;
 
 /**
  *
@@ -28,9 +30,9 @@ public class LoginController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,19 +69,35 @@ public class LoginController extends HttpServlet {
             request.setAttribute("mess", "*Ngu no vua vua thoi dcm");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
-             HttpSession session = request.getSession();
-             session.setAttribute("account", account);
-             response.sendRedirect("/MyProject/lecturer/timetable");
+            HttpSession session = request.getSession();
+            session.setAttribute("account", account);
+            ArrayList<Role> role = account.getRoles();
+            for (Role r : role) {
+                switch (r.getId()) {
+                    case 1:
+                        //   request.getSession().setAttribute("account", account);
+                        response.sendRedirect("./lecturer/timetable");
+                        break;
+                    case 2:
+                        //   request.getSession().setAttribute("account", account);
+                        response.sendRedirect("./student/timetable");
+                        break;
+                    case 3:
+                        
+                }
+            }
         }
     }
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo
+        
+            () {
         return "Short description";
-    }// </editor-fold>
+        }// </editor-fold>
 
-}
+    }

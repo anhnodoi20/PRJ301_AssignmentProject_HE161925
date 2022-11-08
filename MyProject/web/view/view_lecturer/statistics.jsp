@@ -106,9 +106,7 @@
             <div class="a">
                 <div class="a1">
                     <a href="" style="text-decoration: none">
-                        <span><c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
-                                 ${ses.lecturer.name} 
-                            </c:forEach></span>
+                        <span>${sessionScope.account.displayname}</span>
                     </a> | <a href='logout' style="text-decoration: none" >logout</a> |
                     <span> CAMPUS: FPTU-Hòa Lạc</span>
                 </div>

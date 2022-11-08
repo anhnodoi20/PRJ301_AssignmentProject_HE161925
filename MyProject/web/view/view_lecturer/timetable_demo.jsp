@@ -223,7 +223,7 @@
                     <div class="choose">
                         <a href="">
                             <span> 
-                                <fpt:FptTag name="${requestScope.lecturer.name}"/> 
+                                <fpt:FptTag name="${sessionScope.account.displayname}"/> 
                                 <fpt:TaghasBody >  </fpt:TaghasBody>
                             </span></a> | <a href='logout'>logout</a> |
                         <span>CAMPUS: FPTU-Hòa Lạc</span>

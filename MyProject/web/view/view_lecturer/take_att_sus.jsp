@@ -115,7 +115,7 @@
             <div class="a">
                 <div class="a1">
                     <a href="">
-                        <span>${requestScope.ses.lecturer.name}</span>
+                        <span>${sessionScope.account.displayname}</span>
                     </a> | 
                     <span> CAMPUS: FPTU-Hòa Lạc</span>
                 </div>

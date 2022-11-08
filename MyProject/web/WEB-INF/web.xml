@@ -24,6 +24,10 @@
         <servlet-name>ViewAttController</servlet-name>
         <servlet-class>controller.ViewAttController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>timetabeController</servlet-name>
+        <servlet-class>controllerStudent.timetabeController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>ViewAttController</servlet-name>
         <url-pattern>/lecturer/viewslot</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>timetabeController</servlet-name>
+        <url-pattern>/student/timetable</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

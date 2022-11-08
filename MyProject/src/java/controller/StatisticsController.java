@@ -4,6 +4,7 @@
  */
 package controller;
 
+import controller.auth.BaseRoleController;
 import dal.GroupDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -26,54 +27,28 @@ import model.Student;
  *
  * @author win
  */
-public class StatisticsController extends HttpServlet {
+public class StatisticsController extends BaseRoleController {
 
+    
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
+     * Returns a short description of the servlet.
      *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StatisticsController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StatisticsController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @return a String containing servlet description
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Account account = (Account) session.getAttribute("account");
-        if (account == null) {
-            response.sendRedirect("../login");
-        } else {
-            int groupid = Integer.parseInt(request.getParameter("gid"));
-            int lid = Integer.parseInt(request.getParameter("lid"));
-            int subid = Integer.parseInt(request.getParameter("subid"));
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+    @Override
+    protected void processAuthPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    }
+
+    @Override
+    protected void processAuthGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+            int groupid = Integer.parseInt(req.getParameter("gid"));
+            int lid = Integer.parseInt(req.getParameter("lid"));
+            int subid = Integer.parseInt(req.getParameter("subid"));
             GroupDBContext groupDB = new GroupDBContext();
             Group group = groupDB.get(groupid, lid, subid);
 
@@ -120,37 +95,15 @@ public class StatisticsController extends HttpServlet {
             pt = teached / listses.size() * 100;
             pt = Math.round(pt * 10) / 10;
 
-            request.setAttribute("numberses", listses.size());
-            request.setAttribute("perteached", pt);
-            request.setAttribute("teached", teached1);
+            req.setAttribute("numberses", listses.size());
+            req.setAttribute("perteached", pt);
+            req.setAttribute("teached", teached1);
 
-            request.setAttribute("key", map);
-            request.setAttribute("group", group);
-            request.getRequestDispatcher("../view/view_lecturer/statistics.jsp").forward(request, response);
-        }
+            req.setAttribute("key", map);
+            req.setAttribute("group", group);
+            resp.getWriter().print("ngu");
+            req.getRequestDispatcher("../view/view_lecturer/statistics.jsp").forward(req, resp);
+        
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

@@ -14,6 +14,14 @@
         <title>Take Attendance</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function removeStudent(id)
+            {
+                var result = confirm("Ban se logout a?");
+                if(result)
+                    window.location.href="logout";
+            }   
+        </script>
         <style>
             .container{
                 margin-left: 180px;
@@ -116,7 +124,7 @@
                 <div class="a1">
                     <a href="" style="text-decoration: none">
                         <span>${sessionScope.account.displayname}</span>
-                    </a> | <a href='logout' style="text-decoration: none" >logout</a> |
+                    </a> | <a href="logout" onclick="removeStudent()" style="color:white" >Logout</a> |
                     <span> CAMPUS: FPTU-Hòa Lạc</span>
                 </div>
                 <div class="a2">

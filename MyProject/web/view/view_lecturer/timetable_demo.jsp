@@ -194,6 +194,15 @@
 
         </style>
 
+        <script>
+            function removeStudent(id)
+            {
+                var result = confirm("Ban se logout a?");
+                if(result)
+                    window.location.href="logout";
+            }   
+        </script>
+        
     </head>
     <body>
         <div class="container"> 
@@ -225,7 +234,7 @@
                             <span> 
                                 <fpt:FptTag name="${sessionScope.account.displayname}"/> 
                                 <fpt:TaghasBody >  </fpt:TaghasBody>
-                            </span></a> | <a href='logout'>logout</a> |
+                            </span></a> |<a href="logout" onclick="removeStudent()" style="color:white" >Logout</a>|
                         <span>CAMPUS: FPTU-Hòa Lạc</span>
                     </div>
                 </div>

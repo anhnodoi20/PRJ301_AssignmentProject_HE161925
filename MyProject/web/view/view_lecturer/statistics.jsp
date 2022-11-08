@@ -12,6 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Statistics Report Attendance</title>
+        <script>
+            function removeStudent(id)
+            {
+                var result = confirm("Ban se logout a?");
+                if(result)
+                    window.location.href="logout";
+            }   
+        </script>
         <style>
             .container{
                 margin-left: 180px;

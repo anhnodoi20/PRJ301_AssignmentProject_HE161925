@@ -39,8 +39,39 @@
                 background-color: blue;
                 font-weight:bold ;
                 padding: 7px;
+                color:black;
             }
 
+            .thead td a{
+                color:black;
+            }
+            .a {
+                width:100%;
+                height: 30px;
+                margin-top:10px;
+                margin-bottom: 50px;
+                background-color: gainsboro;
+            }
+            .a1 {
+                margin-top: 7px;
+                float: right;
+                margin-right: 10px;
+            }
+            .a1 a, .a1 span {
+                border: none;
+                outline: none;
+                padding: 4px;
+                color: white;
+                background-color: #0FCC45;
+                border-radius: 5px;
+            }
+
+            .a2 {
+                float:left;
+                margin-top: 7px;
+                margin-left: 5px;
+                text-decoration: none;
+            }
 
 
 
@@ -72,14 +103,29 @@
 
             </div>
 
-            Statistics Report Attendance of Group: ${requestScope.group.id} <br/>
-
-            <c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
-                Lecturer: ${ses.lecturer.name} <br/>
-                Subject: ${ses.group.subject.name} <br/>
-
-            </c:forEach>
-
+            <div class="a">
+                <div class="a1">
+                    <a href="" style="text-decoration: none">
+                        <span><c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
+                                 ${ses.lecturer.name} 
+                            </c:forEach></span>
+                    </a> | <a href='logout' style="text-decoration: none" >logout</a> |
+                    <span> CAMPUS: FPTU-Hòa Lạc</span>
+                </div>
+                <div class="a2">
+                    <span>
+                        <a href="timetable" style="text-decoration: none">Timetable of lecture</a>                   
+                    </span>
+                </div>
+            </div>
+            <div>        
+                Statistics Report Attendance of Group: ${requestScope.group.id} <br/>
+                <c:forEach  items="${requestScope.group.sessions}" var="ses"  begin="0" end="0">
+                    Lecturer: ${ses.lecturer.name} <br/>
+                    Subject: ${ses.group.subject.name} <br/>
+                </c:forEach>
+                    <br/>
+            </div>
             <table class="table" border="1px">
                 <tr class="thead">
                     <td>No.</td>
@@ -127,7 +173,7 @@
                                                 <p style="color: green"> P </p>
                                             </c:when> 
                                             <c:when test="${!a.attandated}">
-                                                <p> Not yet </p>
+                                                <p style="color: #33333333"> Not yet </p>
                                             </c:when> 
                                             <c:otherwise>
                                                 <p  style="color: red"> A </p>

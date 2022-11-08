@@ -84,7 +84,7 @@
                 margin-top: 20px;
                 text-align: center;
             }
-
+            
         </style>
     </head>
     <body>
@@ -114,9 +114,9 @@
 
             <div class="a">
                 <div class="a1">
-                    <a href="">
+                    <a href="" style="text-decoration: none">
                         <span>${requestScope.ses.lecturer.name}</span>
-                    </a> | 
+                    </a> | <a href='logout' style="text-decoration: none" >logout</a> |
                     <span> CAMPUS: FPTU-Hòa Lạc</span>
                 </div>
                 <div class="a2">
